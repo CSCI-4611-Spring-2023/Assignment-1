@@ -71,6 +71,9 @@ export class SpaceMinesweeper extends gfx.GfxApp
             this.starfield.particlePositions[i].set(Math.random()*2-1, Math.random()*2-1);
         }
 
+        // Update the particle system position and sizes 
+        this.starfield.update(true, true);
+
         // Set the laser to be a bright green color and scale the rectangle
         // so that it is in the shape of long, thin beam.
         this.laser.material.color.set(.247, .995, .284, 1);
@@ -154,9 +157,10 @@ export class SpaceMinesweeper extends gfx.GfxApp
                 starPosition.y += 2;
         }
 
-        // We need to call this method to update the starfield using
-        // the new star positions defined above.
-        this.starfield.update();
+        // We need to call this method to update the starfield using the new star
+        // positions defined above. The second parameter is false because the
+        // sizes have not changed, so they do not need to be updated.
+        this.starfield.update(true, false);
 
 
         // PART 2: MINE MOVEMENT
