@@ -30,7 +30,7 @@ export class SpaceMinesweeper extends gfx.GfxApp
     private mousePosition: gfx.Vector2;
 
     // Member variable to record the last time a mine was spawned
-    private timeSinceLastMineSpawn = 0;
+    private timeSinceLastMineSpawn: number;
 
     constructor()
     {
@@ -49,13 +49,14 @@ export class SpaceMinesweeper extends gfx.GfxApp
         this.lasers = new gfx.Transform2();
         this.mines = new gfx.Transform2();
 
-        this.mousePosition = new gfx.Vector2();
+        this.mousePosition = new gfx.Vector2()
+        
+
+        this.timeSinceLastMineSpawn = 0;
 
         // This parameter zooms in on the scene to fit within the window.
         // Other options include FIT or STRETCH.
         this.renderer.viewport = gfx.Viewport.CROP;
-
-        this.timeSinceLastMineSpawn = 0;
     }
 
     createScene(): void 
